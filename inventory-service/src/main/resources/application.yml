@@ -1,0 +1,28 @@
+server:
+  port: ${port:8082}
+#  servlet:
+#    context-path: /api
+
+spring:
+  application:
+    name: INVENTORY-SERVICE
+  datasource:
+    password: ${springDatasourcePassword}
+    url: ${springDatasourceUrl}
+    username: ${springDatasourceUsername}
+  profiles:
+    active: '@active.profile@'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+#  graphql:
+#    graphiql:
+#      enabled: true
+
+  cloud:
+    discovery:
+      enabled: true

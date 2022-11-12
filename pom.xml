@@ -6,7 +6,16 @@
 
     <groupId>com.anbaralabs</groupId>
     <artifactId>micro-ecommerce</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>customer-service</module>
+        <module>inventory-service</module>
+        <module>gateway-service</module>
+        <module>gateway-service</module>
+        <module>eureka-discovery</module>
+        <module>eureka-discovery</module>
+    </modules>
 
     <name>micro-ecommerce</name>
     <!-- FIXME change it to the project's website -->
@@ -32,6 +41,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <spring.boot.dependencies.version>2.7.5</spring.boot.dependencies.version>
         <spring.boot.maven.plugin.version>2.7.5</spring.boot.maven.plugin.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -42,6 +52,13 @@
                 <version>${spring.boot.dependencies.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -54,16 +71,23 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
     </dependencies>
-
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
-              <plugin>
-                  <groupId>com.springframwork.boot</groupId>
-                  <artifactId>spring-boot-maven-plugin</artifactId>
-                  <version>${spring.boot.maven.plugin.version}</version>
-              </plugin>
+                <plugin>
+                    <groupId>com.springframwork.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.maven.plugin.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
