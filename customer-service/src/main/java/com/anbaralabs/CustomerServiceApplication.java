@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 /**
  * @author Ayoub Anbara
@@ -17,7 +18,8 @@ public class CustomerServiceApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(CustomerRepo customerRepo) {
+    public CommandLineRunner commandLineRunner(CustomerRepo customerRepo, RepositoryRestConfiguration repositoryRestConfiguration) {
+        repositoryRestConfiguration.exposeIdsFor(Customer.class);
         return args -> {
             Customer c1 = Customer.builder()
                     .name("ayoub anbara")

@@ -12,6 +12,7 @@
         <module name="eureka-discovery" />
         <module name="customer-service" />
         <module name="gateway-service" />
+        <module name="billing-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

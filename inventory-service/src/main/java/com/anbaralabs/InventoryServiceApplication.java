@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import java.math.BigDecimal;
 
@@ -20,7 +21,8 @@ public class InventoryServiceApplication {
 
 
     @Bean
-    public CommandLineRunner commandLineRunner(ProductRepo productRepo) {
+    public CommandLineRunner commandLineRunner(ProductRepo productRepo, RepositoryRestConfiguration repositoryRestConfiguration) {
+        repositoryRestConfiguration.exposeIdsFor(Product.class);
         return args -> {
             Product p1 = Product.builder()
                     .name("IPhone")
