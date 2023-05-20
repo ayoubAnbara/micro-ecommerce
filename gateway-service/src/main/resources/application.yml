@@ -10,3 +10,14 @@
 #          uri: http://localhost:8082/
 #          predicates:
 #            - Path= /products/**
+
+#don't do that in prod
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
