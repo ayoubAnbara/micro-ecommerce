@@ -3,8 +3,8 @@ server:
 spring:
   application:
     name: EUREKA-DISCOVERY
-  profiles:
-    active: '@active.profile@'
+#  profiles:
+#    active: '@active.profile@'
 eureka:
   client:
     fetch-registry: false
